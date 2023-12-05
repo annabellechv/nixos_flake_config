@@ -21,6 +21,9 @@
     timeout = 5;
   };
 
+  # Allow unfree package  
+  nixpkgs.config.allowUnfree = true;
+
   networking = {
     hostName = "nixos"; 		# Define your hostname.
     networkmanager.enable = true;	# Enable networking
@@ -47,7 +50,6 @@
 
       libinput = {
         enable = true; 			# Enable touchpad support.
-        touchpad.tapping = true; 
       };
 
       displayManager.gdm = {
@@ -62,6 +64,7 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  security.pam.services.swaylock = {};	# Needed for unlock with swaylock
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -82,7 +85,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "video" "wheel" ];
     packages = with pkgs; [
      firefox
     ]; 

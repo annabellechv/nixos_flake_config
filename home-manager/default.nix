@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./modules/hyprland
+    ./modules
   ];
+
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
