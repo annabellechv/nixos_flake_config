@@ -42,6 +42,7 @@
       bind = $mod, F, exec, firefox
       bind = $mod, Return, exec, kitty
       bind = $mod, Space, exec, swaylock
+      bind = $mod, D, exec, rofi -modi drun -show drun --show-icons
 
       bindm = $mod, mouse:272, movewindow
       bindm = $mod, mouse:273, resizewindow

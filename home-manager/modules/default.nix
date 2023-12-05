@@ -6,13 +6,15 @@
     ./hyprland
     ./kitty
     ./nvim
+    ./rofi
+    ./starship
     ./swaylock
     ./waybar
   ];
 
   home.packages = with pkgs; [
     # Overview
-    htop
+    btop
     neofetch
 
     # Tools
@@ -21,8 +23,15 @@
     tree
     tldr
     man-pages
+    xfce.thunar
 
     discord
+
+    # Fonts
+    font-awesome
+    fira-code
+    fira-code-symbols
+    material-design-icons
   ];
 
 }

@@ -1,6 +1,11 @@
+{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
+
+    interactiveShellInit = ''
+      ${pkgs.starship}/bin/starship init fish | source
+    '';
 
     shellAliases = {
       ma = "export PAGER='most' & man";
@@ -10,6 +15,7 @@
       hm = "cd ~/.setup/home-manager";
 
       mkdir = "mkdir -p";
+      tree = "tree -C";
     };
 
     shellAbbrs = {

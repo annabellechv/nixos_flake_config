@@ -32,6 +32,8 @@
   services = {
     printing.enable = true;		# Enable CUPS to print documents.
 
+    blueman.enable = true;
+
     pipewire = {
       enable = true;
 
@@ -67,7 +69,10 @@
   security.pam.services.swaylock = {};	# Needed for unlock with swaylock
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+  };
   security.rtkit.enable = true;
 
   nix = {
