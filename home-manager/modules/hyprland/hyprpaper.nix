@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }:
 let
-  wallpaper = "~/.setup/home-manager/wallpaper.jpg";
+  wallpaper = "~/.setup/home-manager/wallpaper-neon.jpg";
 in {
   home.packages = with pkgs; [ hyprpaper ];
 
