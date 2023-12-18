@@ -20,6 +20,7 @@
     # Tools
     arandr
     pavucontrol
+    light
     tree
     tldr
     man-pages
@@ -32,6 +33,9 @@
     fira-code
     fira-code-symbols
     material-design-icons
+
+    # Code
+    vscode
   ];
 
 }

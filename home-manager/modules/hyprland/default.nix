@@ -25,15 +25,15 @@
             builtins.toString (x + 1 - (c * 10));
         in ''
           bind = $mod, ${ws}, workspace, ${toString (x + 1)}
-          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+          bind = $mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}
         ''
       )
       10)}
 
       general {
         border_size = 2
-        gaps_in = 6
-        gaps_out = 10
+        gaps_in = 4
+        gaps_out = 6
         col.inactive_border = rgb(150457)
         col.active_border = rgb(C85CE7)
         resize_on_border = true

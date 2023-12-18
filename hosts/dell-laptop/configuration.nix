@@ -25,14 +25,19 @@
   nixpkgs.config.allowUnfree = true;
 
   networking = {
-    hostName = "nixos"; 		# Define your hostname.
+    hostName = "nixos"; 		      # Define your hostname.
     networkmanager.enable = true;	# Enable networking
+    extraHosts = ''
+      127.0.0.1 gitlab.feur.com
+    '';
   };
 
   services = {
     printing.enable = true;		# Enable CUPS to print documents.
 
     blueman.enable = true;
+
+    fprintd.enable = true;
 
     pipewire = {
       enable = true;
@@ -46,7 +51,7 @@
     };
 
     xserver = {
-      enable = true;			# Enable the X11 windowing system.
+      enable = true;			  # Enable the X11 windowing system.
       layout = "us";
       xkbVariant = "altgr-intl";
 
@@ -61,14 +66,23 @@
     };
   };
 
-  programs.hyprland = {			# Enable hyprland on NixOS
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  programs = {
+    light.enable = true;
+    
+    hyprland = {			      # Enable hyprland on NixOS
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   security.pam.services.swaylock = {};	# Needed for unlock with swaylock
-  # Enable sound with pipewire.
-  sound.enable = true;
+
+  sound.enable = true;      # Enable sound with pipewire.
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
@@ -90,7 +104,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "video" "wheel" ];
+    extraGroups = [ "networkmanager" "video" "wheel" "docker" ];
     packages = with pkgs; [
      firefox
     ]; 
@@ -103,6 +117,8 @@
     git
     kitty
   ];
+
+  virtualisation.docker.enable = true;
 
   time.timeZone = "Europe/Paris";	# Set your time zone.
 
